@@ -1,0 +1,117 @@
+ <header>
+        <h1>🎉 Smart Event Booking Portal</h1>
+        <button id="themeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('bookings')">My Bookings</button>
+    </nav>
+
+    <!-- Sections -->
+    <main>
+        <!-- Home / Events -->
+        <section id="home" class="active">
+            <h2>Available Events</h2>
+
+            <!-- Filter + Sort controls -->
+            <div id="filters">
+                <select id="filterCategory">
+                    <option value="all">All Categories</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Music">Music</option>
+                    <option value="Art">Art</option>
+                </select>
+
+                <select id="sortEvents">
+                    <option value="default">Sort By</option>
+                    <option value="date">Date</option>
+                    <option value="price">Price</option>
+                </select>
+            </div>
+
+
+
+            <div id="eventList" class="grid">
+                <!-- 👇 Add your events directly in HTML -->
+                <div class="event" data-id="1" data-name="Tech Conference" data-category="Technology" data-date="2025-09-20" data-price="500" data-seats="50">
+                    <img src="https://images.stockcake.com/public/2/9/2/292f8e62-8891-41bb-9d82-cf81027244bf_large/tech-conference-speech-stockcake.jpg" alt="Tech Conference">
+                    <h3>Tech Conference</h3>
+                    <p>Technology | 2025-09-20</p>
+                    <p>Price: $500 | Seats: 50</p>
+                    <button onclick="openModal(1)">Book Now</button>
+                </div>
+
+                <div class="event" data-id="2" data-name="Music Festival" data-category="Music" data-date="2025-10-05" data-price="300" data-seats="100">
+                    <img src="https://media.timeout.com/images/106204051/image.jpg" alt="Music Festival">
+                    <h3>Music Festival</h3>
+                    <p>Music | 2025-10-05</p>
+                    <p>Price: $300 | Seats: 100</p>
+                    <button onclick="openModal(2)">Book Now</button>
+                </div>
+
+                <div class="event" data-id="3" data-name="Art Expo" data-category="Art" data-date="2025-11-12" data-price="200" data-seats="80">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRscj93MU2dKn5G7oExCSkmAsvqUSv1Nq42wREV6KCoTRfjaP9K2cWEXBtdti8G4Ae6tJA&usqp=CAU" alt="Art Expo">
+                    <h3>Art Expo</h3>
+                    <p>Art | 2025-11-12</p>
+                    <p>Price: $200 | Seats: 80</p>
+                    <button onclick="openModal(3)">Book Now</button>
+                </div>
+
+                <div class="event" data-id="4" data-name="Holi Event" data-category="Festival" data-date="2026-03-04" data-price="200" data-seats="50">
+                    <img src="https://image.telanganatoday.com/wp-content/uploads/2025/03/h-2_V_jpg--442x260-4g.webp?sw=412&dsz=442x260&iw=392&p=false&r=2.625" alt="Holi Event">
+                    <h3>Holi Event</h3>
+                    <p>Festival | 2026-03-04</p>
+                    <p>Price: $200 | Seats: 50</p>
+                    <button onclick="openModal(4)">Book Now</button>
+                </div>
+
+                <div class="event" data-id="5" data-name="Anirudh concert" data-category="Music" data-date="2026-04-22" data-price="400" data-seats="400">
+                    <img src="https://media.zenfs.com/en/mmail.com.my/4680cd388bb0fb5972f21af875544b70" alt="Tech Conference">
+                    <h3>Anirudh concert </h3>
+                    <p>Music | 2026-04-22</p>
+                    <p>Price: $400 | Seats: 400</p>
+                    <button onclick="openModal(5)">Book Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bookings -->
+        <section id="bookings">
+            <h2>My Bookings</h2>
+            <div id="bookingList" class="bookings-container"></div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Book Event</h3>
+            <img id="modalImage" class="modal-img" alt="Event">
+            <p id="modalEvent"></p>
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <input type="email" id="userEmail" placeholder="Your Email" required>
+            <input type="tel" id="userPhone" placeholder="Your Phone" required>
+            <input type="number" id="ticketCount" placeholder="Tickets" min="1">
+            <button class="btn" onclick="confirmBooking()">Confirm Booking</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-left">
+            <p id="footer-quote">"A goal without a plan is just a wish."</p>
+        </div>
+
+        <div class="footer-right">
+            <button onclick="alert('Memory View clicked!')">Memory View</button>
+            <button onclick="alert('Memories clicked!')">Memories</button>
+            <button id="footerThemeToggle" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+        <div class="footer-bottom">
+            © Stay Inspired. All rights reserved.
+        </div>
+    </footer>
+    <script src="script.js"></script>
