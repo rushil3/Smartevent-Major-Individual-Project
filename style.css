@@ -1,0 +1,286 @@
+:root {
+    --bg: #f5f5f5;
+    --text: #222;
+    --card-bg: #fff;
+    --primary: linear-gradient(to right, #36cccf, #cf36b3, #36cccf);
+    ;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #f5f5f5;
+    --card-bg: #1e1e1e;
+    --primary: linear-gradient(to right, #36cccf, #cf36b3, #36cccf);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    background: var(--primary);
+    color: black;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header button {
+    background: white;
+    color: var(--primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+header button:hover {
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav button:hover {
+    opacity: 0.8;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.event {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.event:hover {
+    transform: translateY(-5px);
+}
+
+.event img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.event h3 {
+    margin: 0.5rem 0;
+}
+
+.event button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.event button:hover {
+    opacity: 0.9;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 1rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    position: relative;
+    /* no overlap */
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 2rem;
+    /* pushes main content above footer */
+}
+
+footer .footer-left {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+footer .footer-right {
+    margin-bottom: 0.5rem;
+}
+
+footer button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.3rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+/* Bookings grid just like home page */
+#bookingList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Collapsible booking card */
+.booking-card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+}
+
+.booking-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.booking-details {
+    margin-top: 0.8rem;
+    display: none;
+    /* hidden by default */
+}
+
+.booking-details.active {
+    display: block;
+    /* show when expanded */
+}
+
+.booking-card button {
+    margin-top: 0.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.booking-card button:hover {
+    opacity: 0.9;
+}
+
+/* Cancel animation */
+.booking-card.removing {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.6s ease;
+}
+
+
+footer button:hover {
+    opacity: 0.8;
+}
+
+footer .footer-bottom {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
